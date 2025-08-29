@@ -21,7 +21,15 @@ class ArticleUpdateRequest extends FormRequest
             'title'       => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'date'        => ['required', 'date'],
-            'image'       => ['nullable', 'image', 'max:500000'],
+            'image'       => ['nullable', 'image', 'max:10240'], // 10MB instead of 50MB
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'image.max' => 'The image may not be greater than 10MB.',
+            'image.image' => 'The file must be an image.',
         ];
     }
 }

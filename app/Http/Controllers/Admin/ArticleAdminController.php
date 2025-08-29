@@ -86,10 +86,8 @@ class ArticleAdminController extends Controller
 
     public function destroy(Article $article): RedirectResponse
     {
-        // Clear all media associated with the article
         $article->clearMediaCollection('images');
 
-        // Delete the article
         $article->delete();
 
         return redirect()

@@ -46,6 +46,23 @@
                             </div>
 
                             <div class="mb-4">
+                                <label for="date" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Date
+                                </label>
+                                <input
+                                    id="date"
+                                    v-model="form.date"
+                                    type="date"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                    :class="{ 'border-red-500': errors.date }"
+                                    required
+                                />
+                                <p v-if="errors.date" class="mt-1 text-sm text-red-600">
+                                    {{ errors.date }}
+                                </p>
+                            </div>
+
+                            <div class="mb-4">
                                 <label for="image" class="block text-sm font-medium text-gray-700 mb-2">
                                     Image
                                 </label>
@@ -122,7 +139,9 @@ const props = defineProps({
 const form = useForm({
     title: props.article.title,
     description: props.article.description,
+    date: props.article.date,
     image: null,
+    _method: 'PUT'
 })
 
 const newImagePreview = ref(null)
@@ -147,7 +166,7 @@ const handleImageChange = (event) => {
 const updateArticle = () => {
     form.post(route('admin.articles.update', props.article.id), {
         forceFormData: true,
-        _method: 'put',
+        preserveScroll: true
     })
 }
 </script>

@@ -1,3 +1,4 @@
+
 <script setup>
 import { Head, Link } from "@inertiajs/vue3";
 
@@ -14,7 +15,7 @@ defineProps({
 
     <div class="flex flex-col min-h-screen bg-white">
         <!-- Navbar -->
-        <header class="p-4 flex justify-between items-center border-b dark:border-gray-700">
+        <header class="p-4 flex justify-between items-center">
             <Link href="/" class="text-lg font-bold text-white-100 dark:text-white-100">
                 GIJS
             </Link>

@@ -17,13 +17,23 @@ Route::get('/laravelpage', function () {
 });
 
 Route::get('/', function () {
-    return Inertia::render('Guest/Home', [
+    $articles = Article::all()->map(function ($article) {
+        return [
+            'id' => $article->id,
+            'title' => $article->title,
+            'description' => $article->description,
+            'date' => $article->date?->format('Y'),
+            'imageUrl' => $article->getFirstMediaUrl('images'),
+        ];
+    });
+
+    return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
+        'articles' => $articles,
     ]);
-});
+})->name('home');
+
 
 Route::get('/', [ArticleController::class, 'index'])->name('guest.index');
 Route::get('/article/{article}', [ArticleController::class, 'show'])->name('guest.article.show');
