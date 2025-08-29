@@ -21,15 +21,7 @@ defineProps({
             </Link>
 
             <nav>
-                <template v-if="canLogin">
-                    <template v-if="auth?.user">
-                        <Link href="/dashboard" class="text-sm text-gray-600 dark:text-gray-400">Dashboard</Link>
-                    </template>
-                    <template v-else>
-                        <Link href="/login" class="text-sm text-gray-600 dark:text-gray-400">Log in</Link>
-                        <Link v-if="canRegister" href="/register" class="ml-4 text-sm text-gray-600 dark:text-gray-400">Register</Link>
-                    </template>
-                </template>
+<!--                to be decided-->
             </nav>
         </header>
 

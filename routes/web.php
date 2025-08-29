@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ArticleAdminController;
 use App\Http\Controllers\Guest\ArticleController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Article;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
