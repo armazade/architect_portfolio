@@ -16,12 +16,8 @@ defineProps({
         <!-- Navbar -->
         <header class="p-4 flex justify-between items-center border-b dark:border-gray-700">
             <Link href="/" class="text-lg font-bold text-white-100 dark:text-white-100">
-                HTMU
+                GIJS
             </Link>
-
-            <h1 class="max-w-2xl mx-auto text-2xl font-bold text-center">
-                Hard To Miss Us
-            </h1>
 
             <nav>
                 <template v-if="canLogin">
@@ -44,7 +40,7 @@ defineProps({
         <!-- Footer -->
         <footer class="p-4 text-center border-t dark:border-gray-700">
             <p class="text-sm text-gray-600 dark:text-gray-400">
-                Hard To Miss Us © {{ new Date().getFullYear() }} All rights reserved
+                Gijs Barendsen © {{ new Date().getFullYear() }} All rights reserved
             </p>
         </footer>
     </div>
