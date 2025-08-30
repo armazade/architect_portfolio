@@ -11,8 +11,41 @@ class ArticleSeeder extends Seeder
     {
         $articles = [
             [
-                'title' => 'Hard to miss Ser',
-                'description' => 'Sergio my guy',
+                'title' => 'New Centrality',
+                'excerpt' => '“Centrality” conveys the concept that specific areas within a city
+                wield a central or dominant role in terms of social and cultural
+                importance.',
+                'summary' => '“Centrality” conveys the concept that specific areas within a city
+                wield a central or dominant role in terms of social and cultural
+                importance. These pivotal locations transcend mere geography,
+                serving as hubs where social, economic, and political activities
+                intersect. They often symbolize authority, influence, and a
+                concentration of resources. The essence of centrality is twofold—it
+                is both a cognitive process and a social phenomenon. Mentally,',
+                'description' => '“Centrality” conveys the concept that specific areas within a city
+                wield a central or dominant role in terms of social and cultural
+                importance. These pivotal locations transcend mere geography,
+                serving as hubs where social, economic, and political activities
+                intersect. They often symbolize authority, influence, and a
+                concentration of resources. The essence of centrality is twofold—it
+                is both a cognitive process and a social phenomenon. Mentally, it
+                involves the simultaneous consideration of events and perceptions
+                of elements within a comprehensive “reality.” Socially, it entails
+                the convergence and amalgamation of assets, products, wealth,
+                and activities. Consequently, centrality can be interpreted as a
+                comprehensive amalgamation of diverse elements.
+                The new Baggerarea is remodeld by doing small interferences to
+                help create new social and cultural importance. One of the main
+                interferences is opening up the inner dyke to to the public and
+                making it a public property only accessible by pedestrians like the
+                old dyke used to be.
+                Furthermore new functions are added to the area like a new inner
+                making street in the Rotterdam Steelworks BV shipyard with a Box
+                in Box system wich can be entered from the North and the south
+                of the dyke. Secondly the old Dredging museum including the
+                extension are converted into an hotel. The current Wow-Keet will
+                be cladded with wooden material and be used as a Pavilion were
+                people from the can rest and have a coffee.',
                 'date' => now(),
             ],
             [

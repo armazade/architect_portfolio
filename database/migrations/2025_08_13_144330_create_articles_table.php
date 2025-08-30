@@ -9,6 +9,8 @@ return new class extends Migration {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->text('excerpt')->nullable();
+            $table->text('summary')->nullable();
             $table->text('description');
             $table->date('date');
             $table->timestamps();

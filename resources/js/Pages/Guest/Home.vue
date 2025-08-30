@@ -45,8 +45,8 @@ defineProps({
                                 {{ article.title }}
                             </h2>
                         </Link>
-                        <p v-if="article.description" class="text-gray-600 leading-relaxed">
-                            {{ article.description }}
+                        <p v-if="article.excerpt" class="text-gray-600 leading-relaxed">
+                            {{ article.excerpt }}
                         </p>
                         <p v-if="article.date" class="text-sm text-gray-400">
                             {{ article.date }}
