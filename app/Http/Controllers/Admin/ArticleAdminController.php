@@ -20,6 +20,7 @@ class ArticleAdminController extends Controller
                     'id' => $article->id,
                     'title' => $article->title,
                     'description' => $article->description,
+                    'excerpt' => $article->excerpt,
                     'created_at' => $article->created_at->format('M d, Y'),
                     'imageUrl' => $article->getFirstMediaUrl('images'),
                 ];
@@ -55,10 +56,18 @@ class ArticleAdminController extends Controller
     public function show(Article $article): Response
     {
         return Inertia::render('Admin/Article/Show', [
-            'article' => $article,
+            'article' => [
+                'id' => $article->id,
+                'title' => $article->title,
+                'excerpt' => $article->excerpt,
+                'summary' => $article->summary,
+                'description' => $article->description,
+                'date' => $article->date,
+            ],
             'imageUrl' => $article->getFirstMediaUrl('images'),
         ]);
     }
+
 
     public function edit(Article $article): Response
     {

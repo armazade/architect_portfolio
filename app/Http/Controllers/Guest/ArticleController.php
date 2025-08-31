@@ -14,6 +14,7 @@ class ArticleController extends Controller
             return [
                 'id' => $article->id,
                 'title' => $article->title,
+                'excerpt' => $article->excerpt,
                 'description' => $article->description,
                 'imageUrl' => $article->getFirstMediaUrl('images'),
             ];
@@ -27,8 +28,15 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
         return Inertia::render('Guest/Show', [
-            'article' => $article,
-            'imageUrl' => $article->getFirstMediaUrl('images')
+            'article' => [
+                'id' => $article->id,
+                'title' => $article->title,
+                'excerpt' => $article->excerpt,
+                'summary' => $article->summary,
+                'description' => $article->description,
+                'date' => $article->date,
+            ],
+            'imageUrl' => $article->getFirstMediaUrl('images'),
         ]);
     }
 }
