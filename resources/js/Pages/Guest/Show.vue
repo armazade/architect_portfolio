@@ -4,21 +4,30 @@
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
-                        <div v-if="imageUrl">
-                            <img :src="imageUrl" alt="Article image" class="mt-4 rounded shadow w-64 h-auto"/>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                        <!-- Image -->
+                        <div v-if="imageUrl" class="flex justify-center">
+                            <img
+                                :src="imageUrl"
+                                alt="Article image"
+                                class="rounded shadow max-w-sm w-full h-auto object-contain"
+                            />
                         </div>
-                        <h1 class="text-2xl font-bold mb-4">{{ article.title }}</h1>
-                        <div class="p-4">
-                            <p class="text-gray-700">{{ article.description }}</p>
+
+                        <!-- Content -->
+                        <div>
+                            <h1 class="text-3xl font-bold mb-4">{{ article.title }}</h1>
+                            <div class="prose max-w-none">
+                                <p class="text-gray-700 leading-relaxed">{{ article.description }}</p>
+                            </div>
+                            <Link
+                                :href="route('guest.index')"
+                                class="inline-block mt-6 text-sm text-indigo-600 hover:underline"
+                            >
+                                ← Back to articles
+                            </Link>
                         </div>
-                        <Link
-                            :href="route('guest.index')"
-                            class="inline-block mb-6 text-sm text-indigo-600 hover:underline"
-                        >
-                            ← Back to articles
-                        </Link>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ defineProps({
 <template>
     <Head :title="title" />
 
-    <div class="flex flex-col min-h-screen bg-white">
+    <div class="flex flex-col min-h-screen bg-[#fafaf7]">
         <!-- Navbar -->
         <header class="p-4 flex justify-between items-center">
             <Link href="/" class="text-lg font-bold text-white-100 dark:text-white-100">

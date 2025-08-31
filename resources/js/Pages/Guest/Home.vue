@@ -18,7 +18,7 @@ defineProps({
                 <article
                     v-for="article in articles"
                     :key="article.id"
-                    class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start"
+                    class="grid grid-cols-2 gap-16 items-start"
                 >
                     <Link :href="route('guest.article.show', article.id)" class="block">
                         <!-- Image -->
@@ -39,19 +39,20 @@ defineProps({
                     </Link>
 
                     <!-- Content -->
-                    <div class="space-y-4">
-                        <Link :href="route('guest.article.show', article.id)">
-                            <h2 class="text-2xl font-medium text-gray-900 hover:text-gray-600 transition-colors">
-                                {{ article.title }}
-                            </h2>
-                        </Link>
-                        <p v-if="article.excerpt" class="text-gray-600 leading-relaxed">
-                            {{ article.excerpt }}
-                        </p>
-                        <p v-if="article.date" class="text-sm text-gray-400">
-                            {{ article.date }}
-                        </p>
-                    </div>
+                    <Link :href="route('guest.article.show', article.id)">
+                        <div class="space-y-4">
+                                <h2 class="text-2xl font-medium text-gray-900 hover:text-gray-600 transition-colors">
+                                    {{ article.title }}
+                                </h2>
+                            <p v-if="article.excerpt" class="text-gray-600 leading-relaxed">
+                                {{ article.excerpt }}
+                            </p>
+                            <p v-if="article.date" class="text-sm text-gray-400">
+                                {{ article.date }}
+                            </p>
+                        </div>
+                    </Link>
+
                 </article>
 
                 <!-- Empty State -->
