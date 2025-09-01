@@ -38,6 +38,7 @@ Route::get('/', function () {
 
 Route::get('/', [ArticleController::class, 'index'])->name('guest.index');
 Route::get('/article/{article}', [ArticleController::class, 'show'])->name('guest.article.show');
+Route::get('/resume', [PublicResumeController::class, 'show'])->name('resume.public');
 
 Route::prefix('admin')
     ->name('admin.')
@@ -50,6 +51,10 @@ Route::prefix('admin')
         Route::get('/articles/{article}/edit', [ArticleAdminController::class, 'edit'])->name('articles.edit');
         Route::put('/articles/{article}', [ArticleAdminController::class, 'update'])->name('articles.update');
         Route::delete('/articles/{article}', [ArticleAdminController::class, 'destroy'])->name('articles.destroy');
+
+        Route::resource('resumes', ResumeController::class)->except(['show']);
+        Route::resource('experiences', ExperienceController::class)->except(['index','show']);
+        Route::resource('education', EducationController::class)->except(['index','show']);
     });
 
 Route::get('/dashboard', function () {
