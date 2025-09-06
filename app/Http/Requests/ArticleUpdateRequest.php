@@ -11,7 +11,7 @@ class ArticleUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        // Adjust if you want to restrict to certain users later
+        // Adjust if you want to restrict to certain users later USERGATEEE
         return true;
     }
 
@@ -21,7 +21,7 @@ class ArticleUpdateRequest extends FormRequest
             'title'       => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'date'        => ['required', 'date'],
-            'image'       => ['nullable', 'image', 'max:10240'], // 10MB instead of 50MB
+            'image'       => ['nullable', 'image', 'max:10240'],
         ];
     }
 
