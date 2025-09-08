@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Gates\UserGate;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleUpdateRequest extends FormRequest
 {
@@ -11,8 +13,7 @@ class ArticleUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        // Adjust if you want to restrict to certain users later USERGATEEE
-        return true;
+        return UserGate::isAdmin(Auth::user());
     }
 
     public function rules(): array

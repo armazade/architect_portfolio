@@ -2,23 +2,27 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Resume extends Model implements HasMedia
+class Resume extends Model
 {
-    use HasFactory, InteractsWithMedia;
-
     protected $fillable = [
-        'name',
-        'headline',
-        'summary',
-        'email',
-        'phone',
-        'location',
-        'linkedin'
+        'title',
+        'user_id',
+        'file_path',
+        'is_active',
+        'notify_user',
     ];
 
+    protected $casts = [
+        'is_active' => 'boolean',
+        'notify_user' => 'boolean',
+    ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
