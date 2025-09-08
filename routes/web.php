@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ArticleAdminController;
+use App\Http\Controllers\Admin\ResumeController;
 use App\Http\Controllers\Guest\ArticleController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Article;
@@ -38,6 +39,7 @@ Route::get('/', function () {
 
 Route::get('/', [ArticleController::class, 'index'])->name('guest.index');
 Route::get('/article/{article}', [ArticleController::class, 'show'])->name('guest.article.show');
+Route::get('/resume', [PublicResumeController::class, 'show'])->name('resume.public');
 
 Route::prefix('admin')
     ->name('admin.')
@@ -50,6 +52,15 @@ Route::prefix('admin')
         Route::get('/articles/{article}/edit', [ArticleAdminController::class, 'edit'])->name('articles.edit');
         Route::put('/articles/{article}', [ArticleAdminController::class, 'update'])->name('articles.update');
         Route::delete('/articles/{article}', [ArticleAdminController::class, 'destroy'])->name('articles.destroy');
+
+        Route::get('resumes', [ResumeController::class, 'index'])->name('resumes.index');
+        Route::get('resumes/create', [ResumeController::class, 'create'])->name('resumes.create');
+        Route::post('resumes', [ResumeController::class, 'store'])->name('resumes.store');
+        Route::get('resumes/{resume}', [ResumeController::class, 'show'])->name('resumes.show');
+        Route::get('resumes/{resume}/edit', [ResumeController::class, 'edit'])->name('resumes.edit');
+        Route::put('resumes/{resume}', [ResumeController::class, 'update'])->name('resumes.update');
+        Route::delete('resumes/{resume}', [ResumeController::class, 'destroy'])->name('resumes.destroy');
+
     });
 
 Route::get('/dashboard', function () {
