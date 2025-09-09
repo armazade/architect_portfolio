@@ -13,7 +13,7 @@ class ArticleUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return UserGate::isAdmin(Auth::user());
+        return true;
     }
 
     public function rules(): array

@@ -11,7 +11,7 @@
                             <img
                                 :src="imageUrl"
                                 alt="Article image"
-                                class="rounded shadow max-w-sm w-full h-auto object-contain"
+                                class="rounded shadow max-w-screen-xl w-full h-auto object-contain"
                             />
                         </div>
 

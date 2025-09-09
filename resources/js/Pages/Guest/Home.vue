@@ -11,53 +11,40 @@ defineProps({
 </script>
 
 <template>
-    <Layout title="Home">
-        <div class="py-2">
-            <div class="w-full max-w-6xl mx-auto space-y-12">
-                <!-- Articles -->
-                <article
-                    v-for="article in articles"
-                    :key="article.id"
-                    class="grid grid-cols-2 gap-16 items-start"
-                >
-                    <Link :href="route('guest.article.show', article.id)" class="block">
-                        <!-- Image -->
-                        <div class="w-full">
-                            <img
-                                v-if="article.imageUrl"
-                                :src="article.imageUrl"
-                                :alt="article.title"
-                                class="w-full h-auto object-contain"
-                            />
-                            <div
-                                v-else
-                                class="w-full aspect-[4/3] bg-gray-100 flex items-center justify-center text-gray-400"
-                            >
-                                No Image
-                            </div>
-                        </div>
+    <Layout class="bg-white min-h-screen py-16">
+        <div class="max-w-7xl mx-auto px-6 space-y-24">
+            <div
+                v-for="article in articles"
+                :key="article.id"
+                class="flex flex-col md:flex-row items-center gap-12 md:gap-20 group"
+            >
+                <!-- IMAGE -->
+                <div class="md:w-3/5 w-full h-72 md:h-96 flex-none overflow-hidden shadow-sm">
+                    <Link
+                        :href="route('guest.article.show', article.id)"
+                        class="block md:w-[600px] w-full h-[350px] md:h-[500px] flex-none overflow-hidden shadow-sm"
+                        tabindex="0"
+                    >
+                    <img
+                        :src="article.imageUrl"
+                        :alt="article.title"
+                        class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                    />
                     </Link>
+                </div>
 
-                    <!-- Content -->
-                    <Link :href="route('guest.article.show', article.id)">
-                        <div class="space-y-4">
-                                <h2 class="text-2xl font-medium text-gray-900 hover:text-gray-600 transition-colors">
-                                    {{ article.title }}
-                                </h2>
-                            <p v-if="article.excerpt" class="text-gray-600 leading-relaxed">
-                                {{ article.excerpt }}
-                            </p>
-                            <p v-if="article.date" class="text-sm text-gray-400">
-                                {{ article.date }}
-                            </p>
-                        </div>
-                    </Link>
-
-                </article>
-
-                <!-- Empty State -->
-                <div v-if="!articles.length" class="text-center py-12">
-                    <p class="text-gray-500">No articles found.</p>
+                <!-- TEXT CONTENT -->
+                <div class="md:w-3/5 w-full">
+                    <h2 class="font-sans text-3xl md:text-s font-light text-gray-900 mb-3">
+                        {{ article.title }}
+                    </h2>
+                    <p v-if="article.excerpt" class="font-sans text-s md:text-s text-gray-600 leading-relaxed mb-6">
+                        {{ article.excerpt }}
+                    </p>
+                    <div class="text-gray-400 text-sm md:text-base">
+                        {{ article.date }}
+                    </div>
                 </div>
             </div>
         </div>
